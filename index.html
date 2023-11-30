@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <script>
+        // Function to calculate grade based on percentage
+        function calculateGrade(percentage) {
+            if (percentage >= 90) {
+                return 'A+';
+            } else if (percentage >= 80) {
+                return 'A';
+            } else if (percentage >= 70) {
+                return 'B';
+            } else if (percentage >= 60) {
+                return 'C';
+            } else if (percentage >= 50) {
+                return 'D';
+            } else {
+                return 'F';
+            }
+        }
+
+        // Function to generate marks sheet
+        function generateMarksSheet() {
+            // Take user input for each subject
+            var mathMarks = parseFloat(prompt("Enter Mathematics marks:"));
+            var econMarks = parseFloat(prompt("Enter Economics marks:"));
+            var islamiatMarks = parseFloat(prompt("Enter Islamiat marks:"));
+            var chemMarks = parseFloat(prompt("Enter Chemistry marks:"));
+            var pstMarks = parseFloat(prompt("Enter PST marks:"));
+            var engMarks = parseFloat(prompt("Enter English marks:"));
+
+            // Calculate total marks and percentage
+            var totalMarks = mathMarks + econMarks + islamiatMarks + chemMarks + pstMarks + engMarks;
+            var percentage = (totalMarks / 600) * 100;
+
+            // Calculate grades for each subject
+            var mathGrade = calculateGrade((mathMarks / 100) * 100);
+            var econGrade = calculateGrade((econMarks / 100) * 100);
+            var islamiatGrade = calculateGrade((islamiatMarks / 100) * 100);
+            var chemGrade = calculateGrade((chemMarks / 100) * 100);
+            var pstGrade = calculateGrade((pstMarks / 100) * 100);
+            var engGrade = calculateGrade((engMarks / 100) * 100);
+
+            // Display marks sheet on the webpage
+            document.write("<h2>Marks Sheet</h2>");
+            document.write("<hr>");
+            document.write(`<p>Mathematics: ${mathMarks} - Grade: ${mathGrade}</p>`);
+            document.write(`<p>Economics: ${econMarks} - Grade: ${econGrade}</p>`);
+            document.write(`<p>Islamiat: ${islamiatMarks} - Grade: ${islamiatGrade}</p>`);
+            document.write(`<p>Chemistry: ${chemMarks} - Grade: ${chemGrade}</p>`);
+            document.write(`<p>PST: ${pstMarks} - Grade: ${pstGrade}</p>`);
+            document.write(`<p>English: ${engMarks} - Grade: ${engGrade}</p>`);
+            document.write("<hr>");
+            document.write(`<p>Total Marks: ${totalMarks}</p>`);
+            document.write(`<p>Percentage: ${percentage}%</p>`);
+            document.write(`<p>Overall Grade: ${calculateGrade(percentage)}</p>`);
+        }
+
+        // Call the function to generate marks sheet
+        generateMarksSheet();
+    </script>
+
+</body>
+
+</html>
